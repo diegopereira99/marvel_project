@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({ Key? key }) : super(key: key);
@@ -8,6 +9,13 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2)).then((value) => Get.toNamed('/character'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

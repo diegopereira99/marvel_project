@@ -7,7 +7,7 @@ import 'package:marvel_test/modules/character/edit_character/edit_character_page
 import 'package:marvel_test/modules/splash/splash_page.dart';
 
 class AppRoutes {
-  static const initialRoute = '/character';
+  static const initialRoute = '/';
 
   static final routes = [
     GetPage(name: "/", page: () => const SplashPage()),
