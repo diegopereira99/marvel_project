@@ -14,3 +14,10 @@ Projeto desenvolvido em Flutter - Consumo da API da Marvel
 - [x]  Adicionar firebase analytics
 - [x]  Adicionar firebase crashlytics
 - [x]  Internacionalziação
+
+# Como rodar o projeto
+
+1. Clone o projeto
+2. No terminal, digite flutter pub get
+3. Caso queira ver os testes, digite "flutter test" no terminal
+4. No terminal, digite "flutter run" para rodar em modo debug, ou flutter run --release" para rodar em modo release(recomendado)
