@@ -14,3 +14,17 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+#Itens completados
+- [x]  Listar personagens da API
+- [x]  Inserção de personagens
+- [x]  Edição de personagens
+- [x]  Remoção de personagens
+- [x]  Resetar dados locais com o da API
+- [x]  Testes unitários controllers
+- [x]  Utilizar FVM
+- [x]  Utilizar get_it para D.I
+- [x]  Adicionar firebase analytics
+- [x]  Adicionar firebase crashlytics
+- [x]  Internacionalziação
