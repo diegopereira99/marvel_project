@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: AppRoutes.initialRoute,
       getPages: AppRoutes.routes,
-      navigatorObservers: [Get.put(FirebaseAnalyticsService()).getAnalyticsObserver()],
+      navigatorObservers: [Get.put(FirebaseAnalyticsService.getAnalyticsObserver())],
     );
   }
 }

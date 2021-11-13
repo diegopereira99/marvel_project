@@ -27,8 +27,8 @@ class _CharacterPageState extends State<CharacterPage> {
             title: 'Erro',
             message: controller.errorMessage.value,
             backgroundColor: Colors.red);
-        controller.errorMessage.value = '';
       }
+      controller.errorMessage.value = '';
     });
     super.initState();
   }
@@ -100,7 +100,7 @@ class _CharacterPageState extends State<CharacterPage> {
             ButtonSheetItem(
                 title: "character_remove_tab_title".tr,
                 onTap: () async {
-                  await controller.removeCharacter(character: character);
+                  controller.removeCharacter(character: character);
                   Navigator.of(context).pop();
                 }),
             ButtonSheetItem(

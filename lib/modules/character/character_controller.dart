@@ -1,8 +1,8 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:get/get.dart';
 import 'package:marvel_test/errors/character_error.dart';
 import 'package:marvel_test/interfaces/character_repository.dart';
 import 'package:marvel_test/models/character_model.dart';
+import 'package:marvel_test/services/application_log_service.dart';
 
 class CharacterController extends GetxController {
   final ICharacterRepository characterRepository;
@@ -36,9 +36,11 @@ class CharacterController extends GetxController {
     } on CharacterErrors catch (_) {
       errorMessage.value = 'Erro ao buscar personagens';
       loading.value = false;
-    } catch (e) {
+    } catch (e, s) {
       errorMessage.value = 'Erro inesperado';
       loading.value = false;
+      ApplicationLogService.createLog(
+          error: e, stackTrace: s, reason: 'Erro ao buscar characters');
     }
   }
 
@@ -70,9 +72,11 @@ class CharacterController extends GetxController {
     } on CharacterErrors catch (_) {
       errorMessage.value = 'Erro ao atualizar personagens';
       loading.value = false;
-    } catch (e) {
+    } catch (e, s) {
       errorMessage.value = 'Erro inesperado';
       loading.value = false;
+      ApplicationLogService.createLog(
+          error: e, stackTrace: s, reason: 'Erro ao atualizar personagens');
     }
   }
 
@@ -85,9 +89,11 @@ class CharacterController extends GetxController {
       } else {
         throw Error();
       }
-    } catch (e) {
+    } catch (e, s) {
       characters.add(character);
       errorMessage.value = 'Erro ao excluir o personagem';
+      await ApplicationLogService.createLog(
+          error: e, stackTrace: s, reason: 'Erro ao remover personagens');
     }
   }
 
@@ -96,11 +102,7 @@ class CharacterController extends GetxController {
   }
 
   void updateCharacter({required CharacterModel character}) async {
-    try {
-      final characterIndex = characters.indexWhere((c) => c.id == character.id);
-      characters[characterIndex] = character;
-    } catch (e) {
-      errorMessage.value = 'Erro ao alterar o personagem';
-    }
+    final characterIndex = characters.indexWhere((c) => c.id == character.id);
+    characters[characterIndex] = character;
   }
 }
