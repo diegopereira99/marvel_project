@@ -13,7 +13,8 @@ class CharacterRepositoryImplementation implements ICharacterRepository {
       "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8208c2c06415a3b1e85df80dc0a910d9&hash=ea867ac59be7a2d166f619d27e56d452&limit=15";
   final Dio http;
   final SharedPreferences prefs;
-  CharacterRepositoryImplementation({required DioForNative this.http, required this.prefs});
+  CharacterRepositoryImplementation(
+      {required DioForNative this.http, required this.prefs});
 
   @override
   Future<CharacterModel> createCharacter(CharacterModel character) async {
