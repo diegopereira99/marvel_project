@@ -22,11 +22,10 @@ class _SearchFieldState extends State<SearchField> {
             borderRadius: const BorderRadius.all(Radius.circular(15))),
         child: TextField(
           onChanged: widget.onChanged,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               hintText: "Pesquisar...",
               border: InputBorder.none,
-              suffixIcon:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.search))),
+              suffixIcon: Icon(Icons.search)),
         ),
       ),
     );

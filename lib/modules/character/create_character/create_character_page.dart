@@ -5,6 +5,7 @@ import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:get/state_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:marvel_test/modules/character/create_character/create_character_controller.dart';
+import 'package:marvel_test/modules/character/widgets/character_form_empty_image_container.dart';
 import 'package:marvel_test/modules/character/widgets/custom_text_field.dart';
 import 'package:marvel_test/modules/character/widgets/character_form_image_container.dart';
 import 'package:marvel_test/modules/character/widgets/save_button.dart';
@@ -52,21 +53,15 @@ class _CreateCharacterPageState extends State<CreateCharacterPage> {
                 controller.setImage(image.path);
               }
             },
-            child: Container(
+            child: SizedBox(
                 width: 150,
                 height: 150,
-                color: Colors.red,
                 child: Obx(() {
                   if (controller.image.isNotEmpty) {
                     return CharacterFormImageContainer(
                         image: controller.image.value);
                   } else {
-                    return Center(
-                        child: Text(
-                      "character_add_image_container".tr,
-                      style: const TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ));
+                    return const CharacterFormEmptyImageContainer();
                   }
                 })),
           ),
