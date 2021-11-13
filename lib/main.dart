@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: AppBindigs(),
-      title: 'Flutter Demo',
+      title: 'Marvel Test',
       translations: AppTranslation(),
       locale: const Locale('pt_BR'),
       fallbackLocale: const Locale('pt_BR'),
