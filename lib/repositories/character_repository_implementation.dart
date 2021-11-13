@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
+import 'package:get/get.dart';
 import 'package:marvel_test/errors/character_error.dart';
 import 'package:marvel_test/interfaces/character_repository.dart';
 import 'package:marvel_test/models/character_model.dart';
@@ -11,7 +12,8 @@ class CharacterRepositoryImplementation implements ICharacterRepository {
   final charactersUrl =
       "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=8208c2c06415a3b1e85df80dc0a910d9&hash=ea867ac59be7a2d166f619d27e56d452&limit=15";
   final Dio http;
-  CharacterRepositoryImplementation({required DioForNative this.http});
+  final SharedPreferences prefs;
+  CharacterRepositoryImplementation({required DioForNative this.http, required this.prefs});
 
   @override
   Future<CharacterModel> createCharacter(CharacterModel character) async {
@@ -54,7 +56,6 @@ class CharacterRepositoryImplementation implements ICharacterRepository {
   @override
   Future<void> saveCharactersInLocalStorage(
       List<CharacterModel> characters) async {
-    final prefs = await SharedPreferences.getInstance();
     await prefs.setString("characters", jsonEncode(characters));
   }
 
@@ -69,7 +70,6 @@ class CharacterRepositoryImplementation implements ICharacterRepository {
 
   @override
   Future<List<CharacterModel>> getCharactersFromlocalStorage() async {
-    final prefs = await SharedPreferences.getInstance();
     final charactersInStorage = prefs.getString('characters');
     if (charactersInStorage != null) {
       return (jsonDecode(charactersInStorage) as List)
