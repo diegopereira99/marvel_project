@@ -9,6 +9,7 @@ import 'package:marvel_test/services/firebase_analytics_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AppBindigs().dependencies();
   await Firebase.initializeApp();
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(const MyApp());
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialBinding: AppBindigs(),
       title: 'Marvel Test',
       translations: AppTranslation(),
       locale: const Locale('pt_BR'),

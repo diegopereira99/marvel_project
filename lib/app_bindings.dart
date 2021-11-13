@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppBindigs extends Bindings {
   @override
-  void dependencies() async {
+  Future<void> dependencies() async {
     Get.put(CustomDio());
     await Get.putAsync(() => SharedPreferences.getInstance());
     Get.put(CharacterController(
