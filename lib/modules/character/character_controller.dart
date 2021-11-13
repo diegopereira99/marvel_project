@@ -36,11 +36,9 @@ class CharacterController extends GetxController {
     } on CharacterErrors catch (_) {
       errorMessage.value = 'Erro ao buscar personagens';
       loading.value = false;
-    } catch (e, s) {
+    } catch (e) {
       errorMessage.value = 'Erro inesperado';
       loading.value = false;
-      ApplicationLogService.createLog(
-          error: e, stackTrace: s, reason: 'Erro ao buscar characters');
     }
   }
 
